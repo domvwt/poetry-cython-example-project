@@ -47,7 +47,7 @@ clean-pyc:
 	find . -name '*~' -exec rm -f {} +
 	find . -name '__pycache__' -exec rm -fr {} +
 
-.PHONE: clean-compiled
+.PHONY: clean-compiled
 clean-compiled:
 	find src -name '*.so' -exec rm -f {} +
 	find src -name '*.c' -exec rm -f {} +
@@ -105,7 +105,19 @@ release: dist ## package and upload a release
 .PHONY: dist
 dist: clean ## builds source and wheel package
 	poetry build
+	$(MAKE) rename_wheel
 	ls -l dist
+
+# Rename the wheel file to match the currently active python version
+.PHONY: rename_wheel
+rename_wheel:
+	@wheel_file=$$(find dist/ -type f -name '*.whl'); \
+	echo "Renaming $${wheel_file}"; \
+	python_ver=$$(python -c 'import platform; print("".join(platform.python_version_tuple()[:2]))'); \
+	echo "Using Python version: $${python_ver}"; \
+	new_wheel_file=$$(echo $${wheel_file} | sed "s/-cp[0-9]*/-cp$$python_ver/g"); \
+	echo "New wheel file name: $${new_wheel_file}"; \
+	mv $${wheel_file} $${new_wheel_file}
 
 .PHONY: hooks
 hooks: ## run pre-commit hooks on all files
