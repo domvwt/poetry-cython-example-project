@@ -53,18 +53,22 @@ cd adders
 make install
 ```
 
-3. Build the project:
+3. Activate the virtual environment:
+
+```
+poetry shell
+```
+
+4. Run the tests:
+
+```
+make test
+```
+
+5. Build the project:
 
 ```
 make dist
-```
-
-### Running the Tests
-
-You can run the tests with the following command:
-
-```
-poetry run pytest
 ```
 
 ### Using the Package
