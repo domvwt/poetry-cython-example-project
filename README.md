@@ -4,7 +4,7 @@ A simple Python package demonstrating how to build and package a Cython extensio
 
 ## Note
 
-Poetry will use the wrong name for the wheel file if you use the `poetry build` command. This is a known issue with Poetry. See [issue #3509](https://github.com/python-poetry/poetry/issues/3509). A workaround is to `pip` install the `dist/adders-0.1.0.tar.gz` file instead of the wheel file.
+Poetry will use the wrong name for the wheel file if you use the `poetry build` command. This is a known issue with Poetry ([#3509](https://github.com/python-poetry/poetry/issues/3509)). A workaround is to `pip` install the `dist/adders-0.1.0.tar.gz` file instead of the wheel file.
 
 ## Project Structure
 
@@ -42,20 +42,14 @@ Poetry will use the wrong name for the wheel file if you use the `poetry build` 
 1. Clone the repository:
 
 ```
-git clone <https://github.com/your_username/adders.git>
+git clone https://github.com/domvwt/poetry-cython-example-project.git
 cd adders
 ```
 
-2. Install the dependencies using Poetry:
+2. Install the project using Poetry:
 
 ```
 poetry install
-```
-
-3. Build the Cython extension:
-
-```
-poetry run python build.py
 ```
 
 ### Running the Tests
