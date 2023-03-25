@@ -9,7 +9,7 @@ Please use the `make dist` command instead which will rename the wheel file to t
 
 ## Project Structure
 
-```
+```text
 .
 ├── build.py             # The build script for compiling Cython extensions
 ├── Makefile             # Optional Makefile for convenience
@@ -42,32 +42,32 @@ Please use the `make dist` command instead which will rename the wheel file to t
 
 1. Clone the repository:
 
-```
+```bash
 git clone https://github.com/domvwt/poetry-cython-example-project.git
 cd adders
 ```
 
 2. Install the project:
 
-```
+```bash
 make install
 ```
 
 3. Activate the virtual environment:
 
-```
+```bash
 poetry shell
 ```
 
 4. Run the tests:
 
-```
+```bash
 make test
 ```
 
 5. Build the project:
 
-```
+```bash
 make dist
 ```
 
@@ -75,7 +75,7 @@ make dist
 
 You can use the `adders` package in your Python projects like this:
 
-```
+```python
 from adders import add
 
 result = add(2, 3)
