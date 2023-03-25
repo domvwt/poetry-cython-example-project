@@ -8,9 +8,9 @@ packages = [
     { include = "adders", from = "src" },
 ]
 include = [
-    { path = "src/adders/*.so", format = "wheel" },
-    { path = "src/adders/*.pyd", format = "wheel" },
-    { path = "src/adders/*.dll", format = "wheel" },
+    { path = "src/adders/**/*.so", format = "wheel" },
+    { path = "src/adders/**/*.pyd", format = "wheel" },
+    { path = "src/adders/**/*.dll", format = "wheel" },
 ]
 
 
