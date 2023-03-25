@@ -63,7 +63,7 @@ clean-test:
 format: ## apply black code formatter
 	black .
 
-.PHONE: lint
+.PHONY: lint
 lint: ## check style with flake8
 	flake8 src tests
 
@@ -108,8 +108,7 @@ dist: clean ## builds source and wheel package
 	$(MAKE) rename_wheel
 	ls -l dist
 
-# Rename the wheel file to match the currently active python version
-.PHONY: rename_wheel
+.PHONY: rename_wheel ## rename wheel file to the current python version
 rename_wheel:
 	@wheel_file=$$(find dist/ -type f -name '*.whl'); \
 	echo "Renaming $${wheel_file}"; \
@@ -124,5 +123,5 @@ hooks: ## run pre-commit hooks on all files
 	pre-commit run -a
 
 .PHONY: install
-install: clean ## install the package to the active Python's site-packages
+install: clean ## install the package with poetry
 	poetry install
